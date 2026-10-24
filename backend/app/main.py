@@ -13,15 +13,20 @@ from backend.app.routers import (
 
 DIST_DIR = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # Startup: Create tables and seed data
+def init_db():
     Base.metadata.create_all(bind=engine)
     db = SessionLocal()
     try:
         seed_database_if_empty(db)
     finally:
         db.close()
+
+# Initialize immediately for serverless environments
+init_db()
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_db()
     yield
 
 app = FastAPI(

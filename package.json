@@ -1,0 +1,10 @@
+{
+  "name": "aicte-fdr-management-portal",
+  "version": "2.0.0",
+  "private": true,
+  "description": "AICTE Statutory Security Deposit & FDR Management Portal",
+  "scripts": {
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
+    "dev": "npm --prefix frontend run dev"
+  }
+}
