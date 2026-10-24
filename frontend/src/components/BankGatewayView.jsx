@@ -122,19 +122,19 @@ export default function BankGatewayView({ fdrs, onRefreshAll }) {
     <div className="space-y-5 animate-entrance">
       {/* Title */}
       <div>
-        <h1 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
-          <KeyRound className="h-4 w-4 text-blue-900" />
+        <h1 className="text-sm md:text-base font-semibold text-slate-800 flex items-center space-x-2">
+          <KeyRound className="h-4 w-4 text-slate-600" />
           <span>Tri-Modal Bank Verification Gateway & CBS Simulator</span>
         </h1>
         <p className="text-xs text-slate-500 mt-0.5">
-          Statutory banking integration via Open Banking CBS/SFMS endpoints, one-time Branch Manager signed digital tokens, and NeSL Information Utility
+          Statutory banking integration via Open Banking CBS/SFMS endpoints, digital tokens, and NeSL Information Utility
         </p>
       </div>
 
       {/* Target Instrument Selector */}
       <div className="card-institutional p-3.5 bg-white border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-3">
         <div className="flex-1">
-          <label className="text-[11px] font-bold text-slate-700 uppercase tracking-wider block mb-1">
+          <label className="text-[11px] font-semibold text-slate-700 uppercase tracking-wider block mb-1">
             Target Fixed Deposit Instrument for Bank Telemetry
           </label>
           <select
@@ -145,7 +145,7 @@ export default function BankGatewayView({ fdrs, onRefreshAll }) {
               setGeneratedToken(null);
               setNeslResponse(null);
             }}
-            className="select-institutional w-full font-mono font-semibold text-xs py-1.5"
+            className="select-institutional w-full font-mono text-xs py-1.5"
           >
             {fdrs?.map(f => (
               <option key={f.id} value={f.id}>
@@ -159,11 +159,11 @@ export default function BankGatewayView({ fdrs, onRefreshAll }) {
           <div className="flex items-center space-x-3 text-xs bg-slate-50 p-2.5 rounded border border-slate-200">
             <div>
               <span className="text-[10px] text-slate-500 block font-medium">Current Status:</span>
-              <span className="font-semibold text-slate-900">{selectedFdr.status}</span>
+              <span className="font-medium text-slate-800">{selectedFdr.status}</span>
             </div>
             <div>
               <span className="text-[10px] text-slate-500 block font-medium">Verification Protocol:</span>
-              <span className="font-semibold text-blue-900">{selectedFdr.verification_level}</span>
+              <span className="font-medium text-slate-800">{selectedFdr.verification_level}</span>
             </div>
           </div>
         )}
@@ -173,51 +173,51 @@ export default function BankGatewayView({ fdrs, onRefreshAll }) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <button
           onClick={() => setActiveMode('cbs')}
-          className={`p-3.5 rounded-md border text-left transition-colors ${
+          className={`p-3.5 rounded border text-left transition-colors ${
             activeMode === 'cbs' 
-              ? 'bg-blue-50/80 border-blue-900 shadow-2xs' 
+              ? 'bg-slate-100/90 border-slate-400' 
               : 'bg-white border-slate-200 hover:border-slate-300'
           }`}
         >
-          <div className="flex items-center space-x-2 text-xs font-bold text-blue-950 mb-1">
-            <Landmark className="h-4 w-4 text-blue-900" />
+          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-800 mb-1">
+            <Landmark className="h-4 w-4 text-slate-600" />
             <span>Mode 1: CBS / SFMS Real-Time API</span>
           </div>
-          <p className="text-[11px] text-slate-600 leading-normal">
+          <p className="text-[11px] text-slate-500 leading-normal">
             Real-time query to simulated Core Banking System API (SBI, PNB, HDFC, Canara, BoB). Reconciles live ledger balance and statutory lien status.
           </p>
         </button>
 
         <button
           onClick={() => setActiveMode('token')}
-          className={`p-3.5 rounded-md border text-left transition-colors ${
+          className={`p-3.5 rounded border text-left transition-colors ${
             activeMode === 'token' 
-              ? 'bg-blue-50/80 border-blue-900 shadow-2xs' 
+              ? 'bg-slate-100/90 border-slate-400' 
               : 'bg-white border-slate-200 hover:border-slate-300'
           }`}
         >
-          <div className="flex items-center space-x-2 text-xs font-bold text-blue-950 mb-1">
-            <Send className="h-4 w-4 text-blue-900" />
+          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-800 mb-1">
+            <Send className="h-4 w-4 text-slate-600" />
             <span>Mode 2: Signed Branch Token Link</span>
           </div>
-          <p className="text-[11px] text-slate-600 leading-normal">
+          <p className="text-[11px] text-slate-500 leading-normal">
             Dispatches authenticated one-time link to Branch Manager's official bank email for digital certification and signature.
           </p>
         </button>
 
         <button
           onClick={() => setActiveMode('nesl')}
-          className={`p-3.5 rounded-md border text-left transition-colors ${
+          className={`p-3.5 rounded border text-left transition-colors ${
             activeMode === 'nesl' 
-              ? 'bg-blue-50/80 border-blue-900 shadow-2xs' 
+              ? 'bg-slate-100/90 border-slate-400' 
               : 'bg-white border-slate-200 hover:border-slate-300'
           }`}
         >
-          <div className="flex items-center space-x-2 text-xs font-bold text-blue-950 mb-1">
-            <FileCheck className="h-4 w-4 text-blue-900" />
+          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-800 mb-1">
+            <FileCheck className="h-4 w-4 text-slate-600" />
             <span>Mode 3: NeSL & DigiLocker DDE</span>
           </div>
-          <p className="text-[11px] text-slate-600 leading-normal">
+          <p className="text-[11px] text-slate-500 leading-normal">
             National E-Governance Services Ltd (NeSL) Information Utility & DigiLocker e-Stamp certification registry.
           </p>
         </button>
@@ -238,7 +238,7 @@ export default function BankGatewayView({ fdrs, onRefreshAll }) {
             <button
               onClick={handleCbsQuery}
               disabled={cbsLoading}
-              className="flex items-center space-x-1.5 rounded-md bg-blue-900 hover:bg-blue-950 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs disabled:opacity-50 transition-colors"
+              className="flex items-center space-x-1.5 rounded bg-slate-800 hover:bg-slate-900 px-3.5 py-1.5 text-xs font-medium text-white disabled:opacity-50 transition-colors"
             >
               <RefreshCw className={`h-3.5 w-3.5 ${cbsLoading ? 'animate-spin' : ''}`} />
               <span>{cbsLoading ? 'Querying CBS...' : 'Execute Live CBS Query'}</span>
@@ -302,7 +302,7 @@ export default function BankGatewayView({ fdrs, onRefreshAll }) {
               <button
                 onClick={handleGenerateToken}
                 disabled={tokenLoading}
-                className="w-full rounded-md bg-blue-900 hover:bg-blue-950 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs disabled:opacity-50 transition-colors"
+                className="w-full rounded bg-slate-800 hover:bg-slate-900 px-3.5 py-1.5 text-xs font-medium text-white disabled:opacity-50 transition-colors"
               >
                 {tokenLoading ? 'Generating Token...' : 'Dispatch Token Link'}
               </button>
@@ -310,16 +310,16 @@ export default function BankGatewayView({ fdrs, onRefreshAll }) {
           </div>
 
           {generatedToken && (
-            <div className="rounded border border-blue-200 bg-blue-50/40 p-3 space-y-2.5 text-xs">
-              <div className="flex items-center justify-between text-blue-950 font-bold">
+            <div className="rounded border border-slate-200 bg-slate-50/70 p-3 space-y-2.5 text-xs">
+              <div className="flex items-center justify-between text-slate-800 font-semibold">
                 <span className="flex items-center space-x-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-blue-900" />
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                   <span>One-Time Signed Branch Manager Token Active</span>
                 </span>
-                <span className="font-mono text-[10px] text-blue-900">EXPIRES_IN: 72_HOURS</span>
+                <span className="font-mono text-[10px] text-slate-500">EXPIRES_IN: 72_HOURS</span>
               </div>
 
-              <div className="flex items-center space-x-2 bg-white p-2 rounded border border-blue-200 font-mono text-slate-800 text-[11px]">
+              <div className="flex items-center space-x-2 bg-white p-2 rounded border border-slate-200 font-mono text-slate-700 text-[11px]">
                 <span className="truncate flex-1">{window.location.origin}/bank-verification/{generatedToken.token}</span>
                 <button
                   onClick={() => {
@@ -327,7 +327,7 @@ export default function BankGatewayView({ fdrs, onRefreshAll }) {
                     setCopied(true);
                     setTimeout(() => setCopied(false), 2000);
                   }}
-                  className="p-1 rounded hover:bg-slate-100 text-blue-900 transition-colors"
+                  className="p-1 rounded hover:bg-slate-100 text-slate-600 transition-colors"
                   title="Copy link"
                 >
                   {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
@@ -335,13 +335,13 @@ export default function BankGatewayView({ fdrs, onRefreshAll }) {
               </div>
 
               <div className="flex items-center justify-between pt-1">
-                <span className="text-slate-600 text-[11px]">Simulate Branch Manager Experience:</span>
+                <span className="text-slate-500 text-[11px]">Simulate Branch Manager Experience:</span>
                 <button
                   onClick={() => {
                     setBmSuccess(null);
                     setDeskModalOpen(true);
                   }}
-                  className="rounded bg-blue-900 hover:bg-blue-950 px-3 py-1 text-xs font-semibold text-white transition-colors"
+                  className="rounded bg-slate-800 hover:bg-slate-900 px-3 py-1 text-xs font-medium text-white transition-colors"
                 >
                   Open Branch Manager Verification Desk →
                 </button>
@@ -356,8 +356,8 @@ export default function BankGatewayView({ fdrs, onRefreshAll }) {
         <div className="card-institutional p-4 bg-white border border-slate-200 space-y-3.5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <h2 className="text-xs font-bold text-slate-900 flex items-center space-x-2">
-                <FileCheck className="h-4 w-4 text-blue-900" />
+              <h2 className="text-xs font-semibold text-slate-800 flex items-center space-x-2">
+                <FileCheck className="h-4 w-4 text-slate-600" />
                 <span>NeSL Information Utility & DigiLocker e-Stamp Validation</span>
               </h2>
               <p className="text-[11px] text-slate-500 mt-0.5">Validates against Digital Document Execution (DDE) e-Stamping registry</p>
@@ -366,7 +366,7 @@ export default function BankGatewayView({ fdrs, onRefreshAll }) {
             <button
               onClick={handleNeslQuery}
               disabled={neslLoading}
-              className="flex items-center space-x-1.5 rounded-md bg-blue-900 hover:bg-blue-950 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs disabled:opacity-50 transition-colors"
+              className="flex items-center space-x-1.5 rounded bg-slate-800 hover:bg-slate-900 px-3.5 py-1.5 text-xs font-medium text-white disabled:opacity-50 transition-colors"
             >
               <FileCheck className={`h-3.5 w-3.5 ${neslLoading ? 'animate-spin' : ''}`} />
               <span>{neslLoading ? 'Querying NeSL DDE...' : 'Verify via NeSL DDE'}</span>

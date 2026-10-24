@@ -285,7 +285,7 @@ export default function NewFDRModal({ isOpen, onClose, institutions, onCreated }
             <button
               type="submit"
               disabled={loading}
-              className="rounded bg-blue-900 hover:bg-blue-950 px-4 py-1.5 font-semibold text-white text-xs shadow-xs transition-colors disabled:opacity-50"
+              className="rounded bg-slate-800 hover:bg-slate-900 px-4 py-1.5 font-medium text-white text-xs transition-colors disabled:opacity-50"
             >
               {loading ? 'Submitting & Pledging...' : 'Pledge FDR to AICTE Registry'}
             </button>

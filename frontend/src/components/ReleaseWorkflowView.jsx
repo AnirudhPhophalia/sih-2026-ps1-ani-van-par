@@ -319,7 +319,7 @@ export default function ReleaseWorkflowView({ onRefreshAll }) {
                       <button
                         onClick={() => handleMakerSubmit(selectedReq.id, true)}
                         disabled={actionLoading}
-                        className="px-4 py-1.5 rounded bg-blue-900 hover:bg-blue-950 text-white text-xs font-semibold shadow-xs transition-colors"
+                        className="px-4 py-1.5 rounded bg-slate-800 hover:bg-slate-900 text-white text-xs font-medium transition-colors"
                       >
                         Approve & Forward to Regional Officer →
                       </button>
@@ -330,7 +330,7 @@ export default function ReleaseWorkflowView({ onRefreshAll }) {
                 {/* Stage 2: Checker Action */}
                 {selectedReq.maker_scrutiny_completed && !selectedReq.checker_ro_approved && (
                   <div className="p-4 rounded border border-slate-200 bg-slate-50/70 space-y-3">
-                    <h4 className="text-xs font-bold text-slate-900">
+                    <h4 className="text-xs font-bold text-slate-800">
                       Tier 2: Regional Directorate Administrative Review
                     </h4>
                     <p className="text-[11px] text-slate-600">
@@ -353,7 +353,7 @@ export default function ReleaseWorkflowView({ onRefreshAll }) {
                       <button
                         onClick={() => handleCheckerSubmit(selectedReq.id, true)}
                         disabled={actionLoading}
-                        className="px-4 py-1.5 rounded bg-blue-900 hover:bg-blue-950 text-white text-xs font-semibold shadow-xs transition-colors"
+                        className="px-4 py-1.5 rounded bg-slate-800 hover:bg-slate-900 text-white text-xs font-medium transition-colors"
                       >
                         Record Concurrence & Forward to Bureau Chief →
                       </button>

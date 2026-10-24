@@ -98,8 +98,8 @@ export default function ScrutinyDeskView({ onRefreshAll }) {
       {/* Title */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
-            <ShieldCheck className="h-4 w-4 text-blue-900" />
+          <h1 className="text-sm md:text-base font-semibold text-slate-800 flex items-center space-x-2">
+            <ShieldCheck className="h-4 w-4 text-slate-600" />
             <span>AI Document Forensics & Scrutiny Desk</span>
           </h1>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -201,9 +201,9 @@ export default function ScrutinyDeskView({ onRefreshAll }) {
                 <button
                   onClick={handleRunAiScan}
                   disabled={scanning}
-                  className="flex items-center space-x-1.5 rounded-md bg-blue-900 hover:bg-blue-950 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs disabled:opacity-50 transition-colors"
+                  className="flex items-center space-x-1.5 rounded bg-slate-800 hover:bg-slate-900 px-3.5 py-1.5 text-xs font-medium text-white disabled:opacity-50 transition-colors"
                 >
-                  <Cpu className={`h-3.5 w-3.5 ${scanning ? 'animate-spin' : ''}`} />
+                  <Cpu className={`h-3.5 w-3.5 text-slate-300 ${scanning ? 'animate-spin' : ''}`} />
                   <span>{scanning ? 'Running Forensics...' : 'Execute AI Forensic Scan'}</span>
                 </button>
               </div>

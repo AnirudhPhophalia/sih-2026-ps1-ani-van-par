@@ -109,20 +109,20 @@ export default function FDRRepositoryView({
       {/* Module Title and Primary Action */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
-            <Building2 className="h-4 w-4 text-blue-900" />
+          <h1 className="text-sm md:text-base font-semibold text-slate-800 flex items-center space-x-2">
+            <Building2 className="h-4 w-4 text-slate-600" />
             <span>Centralized Security Deposit & FDR Collateral Registry</span>
           </h1>
           <p className="text-xs text-slate-500 mt-0.5">
-            Immutable regulatory registry of technical education statutory collateral across Indian States and UTs
+            Statutory registry of technical education collateral across Indian States and Union Territories
           </p>
         </div>
 
         <button
           onClick={() => onOpenNewFDR()}
-          className="flex items-center space-x-1.5 rounded-md bg-blue-900 hover:bg-blue-950 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs transition-colors duration-150"
+          className="flex items-center space-x-1.5 rounded bg-slate-800 hover:bg-slate-900 px-3.5 py-1.5 text-xs font-medium text-white transition-colors"
         >
-          <Plus className="h-3.5 w-3.5" />
+          <Plus className="h-3.5 w-3.5 text-slate-300" />
           <span>Pledge New FDR</span>
         </button>
       </div>
@@ -309,7 +309,7 @@ export default function FDRRepositoryView({
                 onClick={() => setDetailTab('audit-comparison')}
                 className={`px-3 py-1.5 rounded transition-colors ${
                   detailTab === 'audit-comparison'
-                    ? 'bg-blue-900 text-white font-bold'
+                    ? 'bg-slate-800 text-white font-medium'
                     : 'text-slate-600 hover:bg-slate-100'
                 }`}
               >
@@ -319,7 +319,7 @@ export default function FDRRepositoryView({
                 onClick={() => setDetailTab('document')}
                 className={`px-3 py-1.5 rounded transition-colors ${
                   detailTab === 'document'
-                    ? 'bg-blue-900 text-white font-bold'
+                    ? 'bg-slate-800 text-white font-medium'
                     : 'text-slate-600 hover:bg-slate-100'
                 }`}
               >
@@ -329,7 +329,7 @@ export default function FDRRepositoryView({
                 onClick={() => setDetailTab('history')}
                 className={`px-3 py-1.5 rounded transition-colors ${
                   detailTab === 'history'
-                    ? 'bg-blue-900 text-white font-bold'
+                    ? 'bg-slate-800 text-white font-medium'
                     : 'text-slate-600 hover:bg-slate-100'
                 }`}
               >
