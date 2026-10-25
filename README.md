@@ -5,6 +5,7 @@ Welcome to the end-to-end working implementation of the **AICTE Security Deposit
 
 Built strictly in accordance with:
 - [**`00_PROBLEM_STATEMENT_HINGLISH.md`**](file:///d:/vsc/sih/sih20226-ps1/00_PROBLEM_STATEMENT_HINGLISH.md) (**Aasan Guide** — Problem statement ko simple bhasha aur real-life kahani ke sath samjho)
+- [**`05_INNOVATIVE_IDEAS_BRAINSTORMING.md`**](file:///d:/vsc/sih/sih20226-ps1/05_INNOVATIVE_IDEAS_BRAINSTORMING.md) (🚀 **Advanced Innovations & Deep-Tech Brainstorming**)
 - [**`01_PROBLEM_STATEMENT_READABLE.md`**](file:///d:/vsc/sih/sih20226-ps1/01_PROBLEM_STATEMENT_READABLE.md) (All 10 Functional Pillars & Evaluation Targets)
 - [**`02_IMPLEMENTATION_PLAN_AND_ARCHITECTURE.md`**](file:///d:/vsc/sih/sih20226-ps1/02_IMPLEMENTATION_PLAN_AND_ARCHITECTURE.md) (Production C4 Blueprint, FSM, and DDL Models)
 - [**`03_EXHAUSTIVE_RESEARCH_DOSSIER.md`**](file:///d:/vsc/sih/sih20226-ps1/03_EXHAUSTIVE_RESEARCH_DOSSIER.md) (Legal statutes, ELA forensics, and Merkle hash chaining)
@@ -164,5 +165,7 @@ d:\vsc\sih\sih20226-ps1\
 ├── 00_PROBLEM_STATEMENT_HINGLISH.md   # simple bhasha aur real-life kahani ke sath samjho
 ├── 01_PROBLEM_STATEMENT_READABLE.md   # Functional blueprint & 10 pillars
 ├── 02_IMPLEMENTATION_PLAN_AND_ARCHITECTURE.md # System architecture & DDL schema
-└── 03_EXHAUSTIVE_RESEARCH_DOSSIER.md # Regulatory statutes & forensic research
+├── 03_EXHAUSTIVE_RESEARCH_DOSSIER.md # Regulatory statutes & forensic research
+├── 04_PRESENTATION_SLIDES.md         # Slide-by-slide pitch deck content
+└── 05_INNOVATIVE_IDEAS_BRAINSTORMING.md # Advanced innovations, multi-model OCR, fraud forensics & DPI
 ```
