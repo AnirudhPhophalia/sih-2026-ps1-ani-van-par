@@ -4,13 +4,14 @@
 Welcome to the end-to-end working implementation of the **AICTE Security Deposit / Fixed Deposit Receipt (FDR) Lifecycle Management Portal**.
 
 Built strictly in accordance with:
+- [**`00_PROBLEM_STATEMENT_HINGLISH.md`**](file:///d:/vsc/sih/sih20226-ps1/00_PROBLEM_STATEMENT_HINGLISH.md) (**Aasan Guide** — Problem statement ko simple bhasha aur real-life kahani ke sath samjho)
 - [**`01_PROBLEM_STATEMENT_READABLE.md`**](file:///d:/vsc/sih/sih20226-ps1/01_PROBLEM_STATEMENT_READABLE.md) (All 10 Functional Pillars & Evaluation Targets)
 - [**`02_IMPLEMENTATION_PLAN_AND_ARCHITECTURE.md`**](file:///d:/vsc/sih/sih20226-ps1/02_IMPLEMENTATION_PLAN_AND_ARCHITECTURE.md) (Production C4 Blueprint, FSM, and DDL Models)
 - [**`03_EXHAUSTIVE_RESEARCH_DOSSIER.md`**](file:///d:/vsc/sih/sih20226-ps1/03_EXHAUSTIVE_RESEARCH_DOSSIER.md) (Legal statutes, ELA forensics, and Merkle hash chaining)
 
 ---
 
-## ⚡ Quick Start: Run the Portal with One Command
+## Quick Start: Run the Portal with One Command
 
 ### Option 1: Double-click Windows Runner
 Simply double-click [`run_portal.bat`](file:///d:/vsc/sih/sih20226-ps1/run_portal.bat) in this folder.
@@ -29,7 +30,7 @@ Open your browser to:
 
 ---
 
-## 🧪 Automated Test Suite (100% Pass)
+## Automated Test Suite (100% Pass)
 To execute the automated regression test suite covering all 10 pillars:
 ```powershell
 .\venv\Scripts\python.exe -m pytest tests/test_fdr_system.py -v
@@ -46,7 +47,7 @@ All 8 end-to-end integration tests execute in ~1 second, validating:
 
 ---
 
-## 🏛️ Comprehensive Architecture & Features (All 10 Pillars)
+## Comprehensive Architecture & Features (All 10 Pillars)
 
 ### 1. Centralized FDR Repository & Multi-Zone Registry
 - Unified metadata registry covering college PID, FDR number, issuing bank, branch, IFSC, deposit principal, interest rate, issue and maturity dates, and statutory lock-in periods (8-10 years).
@@ -106,7 +107,7 @@ Instant demo switching between 6 distinct administrative roles:
 
 ---
 
-## 📁 Repository Directory Structure
+## Repository Directory Structure
 
 ```
 d:\vsc\sih\sih20226-ps1\
@@ -160,6 +161,7 @@ d:\vsc\sih\sih20226-ps1\
 ├── run_portal.py                     # Single-command launcher
 ├── run_portal.bat                    # Windows batch launcher
 ├── reset_db.py                       # Database re-seed script
+├── 00_PROBLEM_STATEMENT_HINGLISH.md   # simple bhasha aur real-life kahani ke sath samjho
 ├── 01_PROBLEM_STATEMENT_READABLE.md   # Functional blueprint & 10 pillars
 ├── 02_IMPLEMENTATION_PLAN_AND_ARCHITECTURE.md # System architecture & DDL schema
 └── 03_EXHAUSTIVE_RESEARCH_DOSSIER.md # Regulatory statutes & forensic research
