@@ -22,10 +22,6 @@
 5. [Tri-Modal Universal Bank Verification Gateway](#5-tri-modal-universal-bank-verification-gateway)
 6. [Autonomous Maturity Escalation & Anti-Lapse SLA Engine](#6-autonomous-maturity-escalation--anti-lapse-sla-engine)
 7. [Cross-Government Interoperability & Entity Intelligence (MCA, PAN, NGO Darpan, AISHE)](#7-cross-government-interoperability--entity-intelligence-mca-pan-ngo-darpan-aishe)
-8. [Bonus Innovation 1: Dynamic Interest & Yield Ledger with Auto-Compounding Calculator](#8-bonus-innovation-1-dynamic-interest--yield-ledger)
-9. [Bonus Innovation 2: Cryptographic Tamper-Proof QR Code on Digital Lien Certificates](#9-bonus-innovation-2-cryptographic-tamper-proof-qr-code)
-10. [Bonus Innovation 3: Conversational AI & WhatsApp/SMS Nodal Bot for Colleges](#10-bonus-innovation-3-conversational-ai--whatsappsms-nodal-bot)
-11. [Summary Matrix: What to Showcase in 8-Minute SIH Demo](#11-summary-matrix-what-to-showcase-in-8-minute-sih-demo)
 
 ---
 
@@ -333,24 +329,9 @@ Humein ek **"Cross-Government Entity Intelligence Engine"** integrate karna hoga
 > *"Hum stand-alone silo nahi bana rahe! Hamara portal Digital Public Infrastructure (DPI) ke sath judta hai — NITI Aayog NGO Darpan, MCA21 aur Income Tax se cross-verify karke shell trusts ko zero chance deta hai."*
 
 ---
+# Not Anirudh's idea Generate by AI!
 
-## 8. Bonus Innovation 1: Dynamic Interest & Yield Ledger
-
-### Concept
-8 se 10 saal tak bank mein ₹50 Lakh jama rahe, toh uspar interest (byaaj) banta hai!  
-AICTE rules ke mutabiq kuch FDRs par interest reinvest hota hai (cumulative), aur kuch par quarterly trust ke saving account mein transfer hota hai.  
-10 saal baad jab college refund mangta hai, toh **Bank bolta hai ₹72 Lakh bane, college bolta hai ₹85 Lakh banna chahiye tha!** Yeh dispute mahino chalta hai.
-
-###  How To Implement:
-- System mein ek **Dynamic Compound Interest Simulator** hoga.
-- Reserve Bank of India (RBI) ke quarterly repo-rate aur fixed deposit slab ke hisaab se system har saal expected accrued interest calculate karega.
-- College aur AICTE dono ke dashboard par **"Real-Time Estimated Asset Value"** dikhegi:
-  $$\text{Current Accrued Value} = P \times \left(1 + \frac{r}{n}\right)^{nt}$$
-- 10 saal baad bank settlement ke time dispute zero ho jayega!
-
----
-
-## 9. Bonus Innovation 2: Cryptographic Tamper-Proof QR Code
+## 9. Bonus Innovation 1: Cryptographic Tamper-Proof QR Code
 
 ### Concept
 Jab AICTE final **"Discharge / Release NOC Letter"** issue kare, toh koi bhi uska fake printout na bana sake.
@@ -371,7 +352,7 @@ Jab AICTE final **"Discharge / Release NOC Letter"** issue kare, toh koi bhi usk
 
 ---
 
-## 10. Bonus Innovation 3: Conversational AI & WhatsApp/SMS Nodal Bot
+## 10. Bonus Innovation 2: Conversational AI & WhatsApp/SMS Nodal Bot
 
 ### Concept
 College ke Registrar ya Nodal Officer ko har choti baat ke liye computer kholne ki zaroorat nahi honi chahiye.
@@ -385,19 +366,5 @@ College ke Registrar ya Nodal Officer ko har choti baat ke liye computer kholne 
 
 ---
 
-## 11. Summary Matrix: What to Showcase in 8-Minute SIH Demo
-
-Jab aap hackathon stage par live demo doge, toh is sequence mein dikhana — jury full marks degi:
-
-| Demo Minute | Feature to Demonstrate | Visual Impact on Judges |
-| :--- | :--- | :--- |
-| **00:00 - 01:30** | **The Problem & Clean Dashboard** | Desh bhar ke hazaron crore ke active FDRs ka live map aur status metrics. |
-| **01:30 - 03:00** | **Multi-Model OCR & Tamper Detection** | Live upload karo ek receipt: OCR data auto-fill karega + ELA forensic check dikhayega ki image real hai ya edited. |
-| **03:00 - 04:30** | **Tri-Modal Bank Verification** | Bank Manager ka Magic Token link khol kar live 1-click Lien confirmation dikhao. |
-| **04:30 - 06:00** | **Legacy File Ingestion (Batch Scanner)** | Purane 2015 ke pichle records ko drag-and-drop karke batch import karke dikhao. |
-| **06:00 - 07:00** | **Autonomous Escalation & Audit Ledger** | SLA breach ka automated escalation alert aur tamper-proof hash chain dikhao. |
-| **07:00 - 08:00** | **Digital NOC with Tamper-Proof QR** | Single click e-Sign se NOC generate karo aur phone se QR scan karke verify karke dikhao! |
-
----
 
 *Yeh saare innovations aapke project ko ek simple student project se utha kar **Ministry-grade National Enterprise Product** bana dete hain!*
