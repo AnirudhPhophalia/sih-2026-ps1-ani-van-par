@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AICTE FDR Portal - Presentation Diagrams (Judge-Friendly Edition)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text-dark: #0F172A;
+      --text-body: #334155;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+
+      /* Fresh color themes inspired by reference set */
+      --sky-bg: #F0F9FF;
+      --sky-border: #BAE6FD;
+      --sky-accent: #0284C7;
+
+      --lilac-bg: #EEF2FF;
+      --lilac-border: #C7D2FE;
+      --lilac-accent: #4F46E5;
+
+      --mint-bg: #ECFDF5;
+      --mint-border: #A7F3D0;
+      --mint-accent: #059669;
+
+      --amber-bg: #FFFBEB;
+      --amber-border: #FDE68A;
+      --amber-accent: #D97706;
+
+      --peach-bg: #FFF1F2;
+      --peach-border: #FECDD3;
+      --peach-accent: #E11D48;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      padding: 1.5rem;
+      min-height: 100vh;
+    }
+
+    /* Top Nav Header */
+    .top-bar {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.75rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .brand-title h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .brand-title p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 0.55rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      color: var(--text-dark);
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn:hover {
+      background: #F8FAFC;
+      border-color: #CBD5E1;
+    }
+
+    .btn-edit.active {
+      background: #DC2626;
+      color: #FFFFFF;
+      border-color: #DC2626;
+    }
+
+    .btn-primary {
+      background: #4F46E5;
+      color: #FFFFFF;
+      border-color: #4F46E5;
+    }
+
+    .btn-primary:hover {
+      background: #4338CA;
+    }
+
+    /* Tabs Bar */
+    .tabs-wrap {
+      display: flex;
+      gap: 0.65rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .tab-chip {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.65rem 1.1rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .tab-chip:hover {
+      background: #F8FAFC;
+      color: var(--text-dark);
+    }
+
+    .tab-chip.active {
+      background: #0F172A;
+      color: #FFFFFF;
+      border-color: #0F172A;
+    }
+
+    /* Slide Box */
+    .slide-wrapper {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.25rem;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+
+    .slide-wrapper.edit-active [contenteditable="true"] {
+      outline: 2px dashed #4F46E5;
+      outline-offset: 3px;
+      border-radius: 4px;
+      background: rgba(79, 70, 229, 0.04);
+    }
+
+    /* Slide Header */
+    .slide-supertitle {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--lilac-accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .slide-heading {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+    }
+
+    .slide-sub {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    /* LAYOUT 1: 5-Step Process Flow (Inspired by Reference 5) */
+    .steps-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
+      align-items: stretch;
+      gap: 0.35rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-box {
+      border: 2px solid;
+      border-radius: 14px;
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-sky { background: var(--sky-bg); border-color: var(--sky-border); }
+    .step-lilac { background: var(--lilac-bg); border-color: var(--lilac-border); }
+    .step-amber { background: var(--amber-bg); border-color: var(--amber-border); }
+    .step-peach { background: var(--peach-bg); border-color: var(--peach-border); }
+    .step-mint { background: var(--mint-bg); border-color: var(--mint-border); }
+
+    .step-top {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .step-icon-bubble {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .step-title-text {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .role-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      margin-bottom: 0.65rem;
+      width: fit-content;
+    }
+
+    .step-text {
+      font-size: 0.8rem;
+      color: var(--text-body);
+      line-height: 1.45;
+    }
+
+    .step-text b, .step-text strong {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .step-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+    }
+
+    /* Bottom Summary Bar */
+    .summary-bar {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .guarantee-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .guarantee-desc {
+      font-size: 0.82rem;
+      color: var(--text-body);
+      line-height: 1.4;
+    }
+
+    .tech-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    /* LAYOUT 2: 3-Pillar Problem vs Solution vs Game-Changer (Inspired by Reference 4) */
+    .pillars-3-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 0.75rem;
+      align-items: stretch;
+    }
+
+    .pillar-card {
+      border: 2px solid;
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .pillar-pill {
+      background: #FFFFFF;
+      border: 1.5px solid;
+      border-radius: 8px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .pillar-circle-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1.5px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .pillar-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      font-size: 0.84rem;
+      color: var(--text-body);
+      line-height: 1.45;
+    }
+
+    .pillar-bullets li {
+      position: relative;
+      padding-left: 1.1rem;
+    }
+
+    .pillar-bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .p-lilac .pillar-pill, .p-lilac .pillar-circle-icon { border-color: var(--lilac-border); }
+    .p-lilac .pillar-bullets li::before { color: var(--lilac-accent); }
+
+    .p-sky .pillar-pill, .p-sky .pillar-circle-icon { border-color: var(--sky-border); }
+    .p-sky .pillar-bullets li::before { color: var(--sky-accent); }
+
+    .p-mint .pillar-pill, .p-mint .pillar-circle-icon { border-color: var(--mint-border); }
+    .p-mint .pillar-bullets li::before { color: var(--mint-accent); }
+
+    .pillar-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* LAYOUT 3: 2-Column Impact vs Benefits Scorecard (Inspired by Reference 2) */
+    .cols-2-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .scorecard {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .scorecard-header {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    .stakeholder-item {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+    }
+
+    .stakeholder-bubble {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--lilac-bg);
+      border: 1px solid var(--lilac-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .stakeholder-body h4 {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .stakeholder-body p {
+      font-size: 0.82rem;
+      color: var(--text-body);
+      line-height: 1.45;
+    }
+
+    .panel-display {
+      display: none;
+    }
+    .panel-display.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="brand-title">
+      <h1>AICTE FDR Portal &mdash; Presentation Visuals (Judge-Friendly Edition)</h1>
+      <p>Clean visual workflows, problem-solution pillars, and quantified impact scorecards for PPT slides</p>
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn-edit" id="btnEdit" onclick="toggleEdit()">
+        <span id="editText">✏️ Edit Text in Browser</span>
+      </button>
+      <button class="btn btn-primary" onclick="alert('Open AICTE_Innovative_Ideas_Diagrams_Editable.pptx in Microsoft PowerPoint to copy-paste editable shapes!')">
+        <span>📊 Open PPT File</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabs Navigation -->
+  <div class="tabs-wrap">
+    <div class="tab-chip active" onclick="showTab(1)">
+      <span>1. How It Works (5-Step Visual Flow)</span>
+    </div>
+    <div class="tab-chip" onclick="showTab(2)">
+      <span>2. Challenges vs Smart Solution vs Game-Changer</span>
+    </div>
+    <div class="tab-chip" onclick="showTab(3)">
+      <span>3. Stakeholder Impact &amp; Measurable Benefits</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- TAB 1: 5-STEP VISUAL TECHNICAL APPROACH (Inspired by Reference 5) -->
+  <!-- ============================================================== -->
+  <div class="panel-display active" id="tab-1">
+    <div class="slide-wrapper">
+      <div class="slide-supertitle">Technical Approach &bull; End-to-End Visual Workflow</div>
+      <h2 class="slide-heading">How It Works: End-to-End Automated FDR Lifecycle</h2>
+      <p class="slide-sub">A streamlined 5-step journey replacing paper couriers and manual almirahs with instant digital verification.</p>
+
+      <div class="steps-row">
+        <!-- Step 1 -->
+        <div class="step-box step-lilac">
+          <div class="step-top">
+            <div class="step-icon-bubble">📱</div>
+            <div class="step-title-text">1. Digital Intake</div>
+          </div>
+          <span class="role-badge" style="color:var(--lilac-accent);">College Portal</span>
+          <p class="step-text">
+            <b>College logs in</b> and enters basic FDR details.<br/>
+            • Uploads photo/scan of FDR receipt.<br/>
+            • <b>Smart Auto-Crop</b> cleans shadows &amp; skewing automatically.
+          </p>
+        </div>
+
+        <div class="step-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-box step-sky">
+          <div class="step-top">
+            <div class="step-icon-bubble">🤖</div>
+            <div class="step-title-text">2. AI Scrutiny</div>
+          </div>
+          <span class="role-badge" style="color:var(--sky-accent);">AI Engine</span>
+          <p class="step-text">
+            <b>Dual-AI Engine</b> reads FDR No, Amount, Bank &amp; Dates in 2 seconds.<br/>
+            • Spots <b>Photoshop / Canva edits</b> automatically.<br/>
+            • Flags mismatches for <b>1-click review</b>.
+          </p>
+        </div>
+
+        <div class="step-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-box step-amber">
+          <div class="step-top">
+            <div class="step-icon-bubble">🏦</div>
+            <div class="step-title-text">3. Bank Check</div>
+          </div>
+          <span class="role-badge" style="color:var(--amber-accent);">Tri-Modal Gateway</span>
+          <p class="step-text">
+            <b>Checks directly with bank</b> without postal delay.<br/>
+            • Tier-1 Banks: <b>Direct CBS API</b>.<br/>
+            • Rural Banks: <b>1-tap OTP Magic Link</b> sent to Branch Manager.
+          </p>
+        </div>
+
+        <div class="step-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-box step-peach">
+          <div class="step-top">
+            <div class="step-icon-bubble">⏰</div>
+            <div class="step-title-text">4. Anti-Lapse</div>
+          </div>
+          <span class="role-badge" style="color:var(--peach-accent);">Automated Bot</span>
+          <p class="step-text">
+            <b>Autonomous Bot</b> tracks expiry dates daily.<br/>
+            • Alerts Principal on <b>WhatsApp &amp; Email</b> at 180, 90 &amp; 30 days.<br/>
+            • Stalled files <b>auto-escalate</b> to Director.
+          </p>
+        </div>
+
+        <div class="step-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step-box step-mint">
+          <div class="step-top">
+            <div class="step-icon-bubble">📜</div>
+            <div class="step-title-text">5. Secure Release</div>
+          </div>
+          <span class="role-badge" style="color:var(--mint-accent);">Bureau Chief Desk</span>
+          <p class="step-text">
+            Once lock-in finishes, <b>AICTE e-Signs legal NOC</b>.<br/>
+            • Embeds <b>Encrypted QR Code</b> on letter.<br/>
+            • Bank scans QR to <b>safely unfreeze deposit</b>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Summary Box -->
+      <div class="summary-bar">
+        <div>
+          <div class="guarantee-title">🎯 Core Benefit to AICTE &amp; Technical Colleges:</div>
+          <div class="guarantee-desc">
+            Replaces 6 months of postal back-and-forth with <b>under 7 working days</b> turnaround. Eliminates duplicate or edited receipts with zero manual data entry burden on scrutiny clerks.
+          </div>
+        </div>
+        <div>
+          <div style="font-size:0.75rem; font-weight:800; color:var(--text-muted); margin-bottom:0.4rem; text-transform:uppercase;">Production-Grade Stack:</div>
+          <div class="tech-chips">
+            <span class="chip">Python 3.12 / FastAPI</span>
+            <span class="chip">PaddleOCR AI</span>
+            <span class="chip">PostgreSQL 16</span>
+            <span class="chip">Redis 7 Queues</span>
+            <span class="chip">React 18 Dashboard</span>
+            <span class="chip">Aadhaar e-Sign</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- TAB 2: 3-PILLARS PROBLEM vs SOLUTION vs GAME-CHANGER (Inspired by Reference 4) -->
+  <!-- ============================================================== -->
+  <div class="panel-display" id="tab-2">
+    <div class="slide-wrapper">
+      <div class="slide-supertitle">Strategic Value Proposition</div>
+      <h2 class="slide-heading">Challenges, Smart Solution &amp; The Game-Changer</h2>
+      <p class="slide-sub">How our software transforms a 30-year paper bottleneck into automated, transparent national governance.</p>
+
+      <div class="pillars-3-row">
+        <!-- Pillar 1: Challenges -->
+        <div class="pillar-card p-lilac" style="background:var(--lilac-bg); border-color:var(--lilac-border);">
+          <div class="pillar-header">
+            <div class="pillar-pill">Challenges in Old Paper Process</div>
+            <div class="pillar-circle-icon">⚠️</div>
+          </div>
+          <ul class="pillar-bullets">
+            <li><b>Physical Paper Silos:</b> Lakhs of old physical receipts locked in almirahs across 10 Regional Offices. Searching one receipt takes months.</li>
+            <li><b>Photoshop &amp; Fake Receipts:</b> Colleges can easily edit amounts or deposit dates on computer printouts without human officers noticing.</li>
+            <li><b>Silent Expiry Rollover:</b> FDRs mature unnoticed and get rolled over by banks into zero-interest accounts, risking college security deposits.</li>
+            <li><b>180-Day Refund Delay:</b> Genuine colleges wait 6+ months for physical verification letters to travel back and forth by postal courier.</li>
+          </ul>
+        </div>
+
+        <div class="pillar-connector">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <!-- Pillar 2: Smart Solution -->
+        <div class="pillar-card p-sky" style="background:var(--sky-bg); border-color:var(--sky-border);">
+          <div class="pillar-header">
+            <div class="pillar-pill">Our Smart AICTE Solution</div>
+            <div class="pillar-circle-icon">💡</div>
+          </div>
+          <ul class="pillar-bullets">
+            <li><b>AI Key-Value Reading:</b> PaddleOCR reads FDR Number, Principal Amount, IFSC &amp; Expiry in 2 seconds without manual typing.</li>
+            <li><b>Photoshop &amp; Tamper Shield:</b> Error Level Analysis (ELA) detects edited fonts, modified numbers, or Canva fake receipts instantly.</li>
+            <li><b>Tri-Modal Bank Gateway:</b> Works for ALL banks: Direct CBS API for Tier-1 banks, and a simple 2FA OTP Magic Link for rural co-op branches.</li>
+            <li><b>Autonomous SLA Engine:</b> Daily chronometer bot sends proactive alerts on WhatsApp &amp; email so files never get stuck.</li>
+          </ul>
+        </div>
+
+        <div class="pillar-connector">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <!-- Pillar 3: Game Changer -->
+        <div class="pillar-card p-mint" style="background:var(--mint-bg); border-color:var(--mint-border);">
+          <div class="pillar-header">
+            <div class="pillar-pill">The Game-Changer Impact</div>
+            <div class="pillar-circle-icon">🚀</div>
+          </div>
+          <ul class="pillar-bullets">
+            <li><b>Zero Physical Couriers:</b> Saves 50,000+ registered postal letters annually. 100% digital paperless audit trail.</li>
+            <li><b>Under 7-Day Refund SLA:</b> Genuine institutions get deposits released quickly instead of waiting 6 months across bureaucracy.</li>
+            <li><b>Impossible to Tamper:</b> Cryptographic hash ledger prevents even database admins from quietly editing records.</li>
+            <li><b>100% Nationwide Bank Reach:</b> Nariman Point SBI branch ho ya rural Bihar Gramin bank, every branch manager can verify with 1 tap.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- TAB 3: POTENTIAL IMPACT vs MEASURABLE BENEFITS (Inspired by Reference 2) -->
+  <!-- ============================================================== -->
+  <div class="panel-display" id="tab-3">
+    <div class="slide-wrapper">
+      <div class="slide-supertitle">Executive Scorecard &bull; Stakeholder Value</div>
+      <h2 class="slide-heading">Potential Impact &amp; Quantified Benefits of the Solution</h2>
+      <p class="slide-sub">Clear operational gains for Technical Colleges, AICTE Scrutiny Officers, and National Regulators.</p>
+
+      <div class="cols-2-row">
+        <!-- Column 1 -->
+        <div class="scorecard">
+          <h3 class="scorecard-header">Potential Impact on Key Stakeholders</h3>
+
+          <div class="stakeholder-item">
+            <div class="stakeholder-bubble">🎓</div>
+            <div class="stakeholder-body">
+              <h4>Technical Institutions &amp; Colleges:</h4>
+              <p>
+                <b>Eliminates courier tracking anxiety:</b> Real-time dashboard shows exact verification status 24/7.<br/>
+                • <b>Proactive renewal alerts:</b> Stops unexpected deposit forfeiture before statutory deadlines.
+              </p>
+            </div>
+          </div>
+
+          <div class="stakeholder-item">
+            <div class="stakeholder-bubble">👔</div>
+            <div class="stakeholder-body">
+              <h4>AICTE Regional Officers &amp; Scrutiny Clerks:</h4>
+              <p>
+                <b>90% verification time reduction:</b> AI pre-fills 80% of data; officers only verify highlighted discrepancies.<br/>
+                • <b>Zero physical file hunting:</b> Instant search across 30 years of digital records.
+              </p>
+            </div>
+          </div>
+
+          <div class="stakeholder-item">
+            <div class="stakeholder-bubble">🏛️</div>
+            <div class="stakeholder-body">
+              <h4>Regulation Bureau &amp; Vigilance Directorate:</h4>
+              <p>
+                <b>Zero Financial Fraud Risk:</b> Stops fake/photoshopped FDRs from receiving approvals.<br/>
+                • <b>Strict Non-Repudiation:</b> Every action sealed with Aadhaar e-Sign &amp; cryptographic hash ledger.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="scorecard">
+          <h3 class="scorecard-header">Measurable Benefits of the Solution</h3>
+
+          <div class="stakeholder-item">
+            <div class="stakeholder-bubble" style="background:var(--mint-bg); border-color:var(--mint-border);">⚡</div>
+            <div class="stakeholder-body">
+              <h4>Speed &amp; Efficiency Gains:</h4>
+              <p>
+                <b>Refund cycle compressed</b> from 180 days down to under 7 working days.<br/>
+                • <b>2-second AI reading</b> replaces 45 minutes of manual document typing.
+              </p>
+            </div>
+          </div>
+
+          <div class="stakeholder-item">
+            <div class="stakeholder-bubble" style="background:var(--mint-bg); border-color:var(--mint-border);">🛡️</div>
+            <div class="stakeholder-body">
+              <h4>Fraud Immunity &amp; Security:</h4>
+              <p>
+                <b>100% Tamper Detection:</b> Identifies photoshopped deposit receipts before human review.<br/>
+                • <b>Dual-Truth Segregation:</b> Institutional claim is independently verified with the bank ledger.
+              </p>
+            </div>
+          </div>
+
+          <div class="stakeholder-item">
+            <div class="stakeholder-bubble" style="background:var(--mint-bg); border-color:var(--mint-border);">📈</div>
+            <div class="stakeholder-body">
+              <h4>Governance &amp; Accountability:</h4>
+              <p>
+                <b>Zero-Lapse SLA Ladder:</b> Stalled cases auto-escalate from clerk to Regional Director.<br/>
+                • <b>DPDP Act &amp; IT Act Compliant:</b> Legally binding Aadhaar e-Sign with encrypted QR codes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let editMode = false;
+
+    function showTab(num) {
+      document.querySelectorAll('.tab-chip').forEach((c, idx) => {
+        c.classList.toggle('active', idx === (num - 1));
+      });
+      document.querySelectorAll('.panel-display').forEach((p, idx) => {
+        p.classList.toggle('active', idx === (num - 1));
+      });
+    }
+
+    function toggleEdit() {
+      editMode = !editMode;
+      const btn = document.getElementById('btnEdit');
+      const txt = document.getElementById('editText');
+
+      btn.classList.toggle('active', editMode);
+      txt.innerText = editMode ? '💾 Done Editing' : '✏️ Edit Text in Browser';
+
+      document.querySelectorAll('.slide-wrapper').forEach(w => {
+        w.classList.toggle('edit-active', editMode);
+        w.querySelectorAll('.step-title-text, .step-text, .pillar-pill, .pillar-bullets li, .stakeholder-body h4, .stakeholder-body p, .slide-heading, .slide-sub, .guarantee-desc').forEach(el => {
+          el.setAttribute('contenteditable', editMode ? 'true' : 'false');
+        });
+      });
+
+      if (editMode) {
+        alert("Edit Mode ON!\n\nYou can now click and edit ANY sentence or keyword directly in the browser.");
+      }
+    }
+  </script>
+</body>
+</html>
