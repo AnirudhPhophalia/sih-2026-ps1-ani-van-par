@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AICTE FDR Portal - 7 Innovative Technical Pipelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text-dark: #0F172A;
+      --text-body: #334155;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+
+      /* Color Themes */
+      --sky-bg: #F0F9FF;
+      --sky-border: #BAE6FD;
+      --sky-accent: #0284C7;
+
+      --lilac-bg: #EEF2FF;
+      --lilac-border: #C7D2FE;
+      --lilac-accent: #4F46E5;
+
+      --mint-bg: #ECFDF5;
+      --mint-border: #A7F3D0;
+      --mint-accent: #059669;
+
+      --amber-bg: #FFFBEB;
+      --amber-border: #FDE68A;
+      --amber-accent: #D97706;
+
+      --peach-bg: #FFF1F2;
+      --peach-border: #FECDD3;
+      --peach-accent: #E11D48;
+
+      --purple-bg: #FAF5FF;
+      --purple-border: #E9D5FF;
+      --purple-accent: #7E22CE;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      padding: 1.5rem;
+      min-height: 100vh;
+    }
+
+    /* Top Control Bar */
+    .top-bar {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.75rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .brand-title h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .brand-title p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 0.55rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      color: var(--text-dark);
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn:hover {
+      background: #F8FAFC;
+      border-color: #CBD5E1;
+    }
+
+    .btn-edit.active {
+      background: #DC2626;
+      color: #FFFFFF;
+      border-color: #DC2626;
+    }
+
+    .btn-primary {
+      background: var(--lilac-accent);
+      color: #FFFFFF;
+      border-color: var(--lilac-accent);
+    }
+
+    .btn-primary:hover {
+      background: #4338CA;
+    }
+
+    /* Horizontal Innovation Tabs */
+    .tabs-wrap {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+    }
+
+    .tab-chip {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.65rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .tab-chip:hover {
+      background: #F8FAFC;
+      color: var(--text-dark);
+    }
+
+    .tab-chip.active {
+      background: var(--text-dark);
+      color: #FFFFFF;
+      border-color: var(--text-dark);
+    }
+
+    .tab-pill {
+      font-size: 0.7rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    .tab-chip:not(.active) .tab-pill {
+      background: var(--bg);
+      color: var(--text-muted);
+    }
+
+    /* Slide Box */
+    .slide-wrapper {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.25rem;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+
+    .slide-wrapper.edit-active [contenteditable="true"] {
+      outline: 2px dashed var(--lilac-accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+      background: rgba(79, 70, 229, 0.04);
+    }
+
+    .slide-supertitle {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--lilac-accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .slide-heading {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+
+    /* Operational Challenge vs Solution MVP Strip */
+    .mvp-strip {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.85rem 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mvp-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .mvp-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .mvp-label-problem { color: var(--peach-accent); }
+    .mvp-label-solution { color: var(--mint-accent); }
+
+    .mvp-text {
+      font-size: 0.82rem;
+      color: var(--text-body);
+      line-height: 1.4;
+    }
+
+    .mvp-text b, .mvp-text strong {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    /* 3-Pillar Grid */
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1.35fr auto 1fr;
+      align-items: stretch;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pipe-pillar {
+      border: 2px solid;
+      border-radius: 16px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar-green { background: var(--mint-bg); border-color: var(--mint-border); }
+    .pillar-yellow { background: var(--amber-bg); border-color: var(--amber-border); }
+    .pillar-coral { background: var(--peach-bg); border-color: var(--peach-border); }
+    .pillar-blue { background: var(--sky-bg); border-color: var(--sky-border); }
+    .pillar-purple { background: var(--purple-bg); border-color: var(--purple-border); }
+
+    .pillar-head {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .pillar-icon-circ {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      flex-shrink: 0;
+    }
+
+    .pillar-title-group h3 {
+      font-size: 0.92rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .pillar-title-group p {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .white-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 0.85rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-top-title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .card-pill {
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .card-desc-text {
+      font-size: 0.74rem;
+      color: var(--text-body);
+      line-height: 1.35;
+    }
+
+    .card-desc-text b, .card-desc-text strong {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .pipe-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+    }
+
+    /* Architectural Impact Bar */
+    .impact-bar {
+      background: #0F172A;
+      color: #FFFFFF;
+      border-radius: 12px;
+      padding: 1.1rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .impact-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #94A3B8;
+      margin-bottom: 0.25rem;
+    }
+
+    .impact-desc {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #F8FAFC;
+      line-height: 1.45;
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tech-chip {
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #E2E8F0;
+    }
+
+    .panel-item {
+      display: none;
+    }
+    .panel-item.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="brand-title">
+      <h1>AICTE FDR Portal &mdash; 7 Innovative Technical Pipelines</h1>
+      <p>Clean Architectural Visualizations &bull; Pure Professional English &bull; Zero Jargon Clutter</p>
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn-edit" id="btnEdit" onclick="toggleEdit()">
+        <span id="editText">✏️ Edit Text in Browser</span>
+      </button>
+      <button class="btn btn-primary" onclick="alert('Open presentation/decks/AICTE_Innovative_Ideas_Diagrams_Editable.pptx in Microsoft PowerPoint!')">
+        <span>📊 Open PPT Deck</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabs Navigation -->
+  <div class="tabs-wrap">
+    <div class="tab-chip active" onclick="switchTab(1)">
+      <span>1. Legacy Records Ingestion</span>
+      <span class="tab-pill">Historical Clearance</span>
+    </div>
+    <div class="tab-chip" onclick="switchTab(2)">
+      <span>2. Multi-Model OCR Routing</span>
+      <span class="tab-pill">99.2% Accuracy</span>
+    </div>
+    <div class="tab-chip" onclick="switchTab(3)">
+      <span>3. Document Forensics &amp; ELA</span>
+      <span class="tab-pill">Tamper Detection</span>
+    </div>
+    <div class="tab-chip" onclick="switchTab(4)">
+      <span>4. Cryptographic Merkle Ledger</span>
+      <span class="tab-pill">Zero-Trust Immutability</span>
+    </div>
+    <div class="tab-chip" onclick="switchTab(5)">
+      <span>5. Tri-Modal Bank Gateway</span>
+      <span class="tab-pill">100% Banking Coverage</span>
+    </div>
+    <div class="tab-chip" onclick="switchTab(6)">
+      <span>6. Anti-Lapse SLA Engine</span>
+      <span class="tab-pill">Automated Accountability</span>
+    </div>
+    <div class="tab-chip" onclick="switchTab(7)">
+      <span>7. Cross-Gov DPI Intelligence</span>
+      <span class="tab-pill">Benami Entity Filter</span>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PIPELINE 1: LEGACY PHYSICAL RECORDS DIGITIZATION -->
+  <!-- ================================================================= -->
+  <div class="panel-item active" id="tab-1">
+    <div class="slide-wrapper">
+      <div class="slide-supertitle">System Architecture &bull; Legacy Modernization &amp; Backlog Resolution</div>
+      <h2 class="slide-heading">Legacy Physical Records Digitization &amp; Historical Data Ingestion Engine</h2>
+
+      <div class="mvp-strip">
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-problem">Core Operational Challenge:</span>
+          <p class="mvp-text">Over <b>50,000 legacy physical FDR files and letters</b> are archived across 10 Regional Offices. Retrieving a single legacy deposit record manually takes up to 60 days.</p>
+        </div>
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-solution">Engineered Architecture &amp; MVP Pipeline:</span>
+          <p class="mvp-text">A <b>high-throughput batch ingestion pipeline</b>: High-speed scanner &rarr; OpenCV contrast restoration &rarr; LayoutLMv3 table extraction &rarr; RapidFuzz PID entity linkage &rarr; Split-screen 10-second review desk.</p>
+        </div>
+      </div>
+
+      <div class="pipeline-grid">
+        <div class="pipe-pillar pillar-blue">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🗄️</div>
+            <div class="pillar-title-group">
+              <h3>1. Batch Ingestion</h3>
+              <p>Image Normalization</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top-title">High-Speed Batch Scanner</div>
+              <p class="card-desc-text">Ingests multi-page batch PDF/TIFF files of <b>aged physical FDR receipts and correspondence</b>.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top-title">OpenCV CLAHE &amp; Deskew</div>
+              <p class="card-desc-text">Adaptive histogram equalization and Otsu thresholding <b>restores faded dot-matrix print and corrects skew</b>.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top-title">Stamp &amp; Seal Anchoring</div>
+              <p class="card-desc-text">Automated region-of-interest cropping using <b>AICTE regional inward stamps and bank seals</b> as anchors.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-purple">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">⚡</div>
+            <div class="pillar-title-group">
+              <h3>2. AI Extraction &amp; Entity Link</h3>
+              <p>RapidFuzz &amp; Layout Parser</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">LayoutLMv3 Spatial Table Parser</span>
+                <span class="card-pill" style="background:var(--purple-bg); color:var(--purple-accent);">STRUCTURED JSON</span>
+              </div>
+              <p class="card-desc-text">Converts unstructured layouts into verified data: <b>FDR Number, Principal Amount, Bank Branch, and Maturity Date</b>.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">RapidFuzz Levenshtein PID Linker</span>
+                <span class="card-pill" style="background:var(--sky-bg); color:var(--sky-accent);">PID MATCHER</span>
+              </div>
+              <p class="card-desc-text">Resolves historical naming variations and maps records automatically to the <b>AICTE Master Permanent Institute ID (PID)</b>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#7E22CE" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-green">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">✅</div>
+            <div class="pillar-title-group">
+              <h3>3. Dual-Queue Output</h3>
+              <p>Verification &amp; Seeding</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card" style="border-color:var(--mint-border);">
+              <div class="card-top">
+                <span class="card-top-title" style="color:var(--mint-accent);">Match Score &ge; 95%</span>
+                <span class="card-pill" style="background:var(--mint-bg); color:var(--mint-accent);">AUTO-SEED</span>
+              </div>
+              <p class="card-desc-text">Committed directly into active database. <b>Physical paper files cleared for permanent archiving or destruction</b>.</p>
+            </div>
+            <div class="white-card" style="border-color:var(--amber-border);">
+              <div class="card-top">
+                <span class="card-top-title" style="color:var(--amber-accent);">Match Score &lt; 95%</span>
+                <span class="card-pill" style="background:var(--amber-bg); color:var(--amber-accent);">FAST TAGGER</span>
+              </div>
+              <p class="card-desc-text">Split-screen interface: Scanned document on left, pre-filled AI data on right. <b>10-second review with keyboard shortcuts</b>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-bar">
+        <div>
+          <div class="impact-label">Architectural Impact &amp; Operational Guarantee:</div>
+          <p class="impact-desc">Eliminates 30 years of paper backlog across 10 Regional Offices. Converts physical archives into an instantly searchable, tamper-evident digital master database with over 90% manual effort reduction.</p>
+        </div>
+        <div>
+          <div class="impact-label">Production Tech Stack:</div>
+          <div class="tech-pills">
+            <span class="tech-chip">OpenCV CLAHE</span>
+            <span class="tech-chip">PaddleOCR v4</span>
+            <span class="tech-chip">RapidFuzz C++</span>
+            <span class="tech-chip">PostgreSQL 16</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PIPELINE 2: HIERARCHICAL ENSEMBLE OCR ROUTING -->
+  <!-- ================================================================= -->
+  <div class="panel-item" id="tab-2">
+    <div class="slide-wrapper">
+      <div class="slide-supertitle">System Architecture &bull; Computer Vision &amp; Document Intelligence</div>
+      <h2 class="slide-heading">Hierarchical Multi-Model Ensemble OCR with Intelligent Routing</h2>
+
+      <div class="mvp-strip">
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-problem">Core Operational Challenge:</span>
+          <p class="mvp-text">Single rigid OCR engines fail on <b>faded dot-matrix print, physical rubber stamps, and handwritten cursive branch manager endorsements</b>.</p>
+        </div>
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-solution">Engineered Architecture &amp; MVP Pipeline:</span>
+          <p class="mvp-text"><b>Dynamic Neural Routing</b>: Ingested scans are evaluated for image quality and routed across PaddleOCR (&lt;300ms), LayoutLMv3 table segmentation, and Microsoft TrOCR handwriting extraction.</p>
+        </div>
+      </div>
+
+      <div class="pipeline-grid">
+        <div class="pipe-pillar pillar-blue">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🔍</div>
+            <div class="pillar-title-group">
+              <h3>1. Pre-Flight Triage</h3>
+              <p>Quality Classification</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top-title">Laplacian Blur Evaluator</div>
+              <p class="card-desc-text">Measures edge sharpness via <code>cv2.Laplacian()</code> variance. Unsharp masking restores low-contrast scans.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top-title">Geometry &amp; Layout Classifier</div>
+              <p class="card-desc-text">Classifies documents into: <b>Standard Machine-Printed, Multi-Column Tabular Matrix, or Cursive Handwritten Endorsement</b>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-yellow">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🧠</div>
+            <div class="pillar-title-group">
+              <h3>2. Multi-Model Routes</h3>
+              <p>Specialized Neural Engines</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Route A: PaddleOCR PP-OCRv4</span>
+                <span class="card-pill" style="background:var(--mint-bg); color:var(--mint-accent);">SUB-300MS SPEED</span>
+              </div>
+              <p class="card-desc-text">Delivers 98.4% precision on clean numerical fields, FDR numbers, and IFSC codes.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Route B: LayoutLMv3 Multi-Modal</span>
+                <span class="card-pill" style="background:var(--purple-bg); color:var(--purple-accent);">TABLE PARSER</span>
+              </div>
+              <p class="card-desc-text">Integrates spatial coordinates with linguistic tokens to <b>disambiguate Principal vs Maturity columns</b>.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Route C: Microsoft TrOCR</span>
+                <span class="card-pill" style="background:var(--amber-bg); color:var(--amber-accent);">HANDWRITING</span>
+              </div>
+              <p class="card-desc-text">Transformer-based sequence recognition for <b>cursive handwriting, branch manager lien endorsements, and rubber stamps</b>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-green">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🗳️</div>
+            <div class="pillar-title-group">
+              <h3>3. Ensemble Consensus</h3>
+              <p>Confidence Evaluation</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card" style="border-color:var(--mint-border);">
+              <div class="card-top">
+                <span class="card-top-title" style="color:var(--mint-accent);">Confidence Score &ge; 0.88</span>
+                <span class="card-pill" style="background:var(--mint-bg); color:var(--mint-accent);">AUTO-PASS</span>
+              </div>
+              <p class="card-desc-text">Cross-model voting confirmation. Automatically populates database fields without clerk intervention.</p>
+            </div>
+            <div class="white-card" style="border-color:var(--peach-border);">
+              <div class="card-top">
+                <span class="card-top-title" style="color:var(--peach-accent);">Confidence Score &lt; 0.88</span>
+                <span class="card-pill" style="background:var(--peach-bg); color:var(--peach-accent);">DIFF REVIEW</span>
+              </div>
+              <p class="card-desc-text">Triggers side-by-side visual diff highlighting discrepancies in amber for one-click confirmation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-bar">
+        <div>
+          <div class="impact-label">Architectural Impact &amp; Operational Guarantee:</div>
+          <p class="impact-desc">Replaces rigid single-engine OCR with an adaptive multi-model neural pipeline, elevating optical extraction accuracy from 74% to 99.2% across diverse banking receipts nationwide.</p>
+        </div>
+        <div>
+          <div class="impact-label">Production Tech Stack:</div>
+          <div class="tech-pills">
+            <span class="tech-chip">PaddleOCR PP-OCRv4</span>
+            <span class="tech-chip">LayoutLMv3</span>
+            <span class="tech-chip">Microsoft TrOCR</span>
+            <span class="tech-chip">FastAPI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PIPELINE 3: AI DOCUMENT FORENSICS & ELA -->
+  <!-- ================================================================= -->
+  <div class="panel-item" id="tab-3">
+    <div class="slide-wrapper">
+      <div class="slide-supertitle">System Architecture &bull; Security &amp; Anti-Fraud Inspection</div>
+      <h2 class="slide-heading">AI Document Forensics &amp; Tamper Detection Engine</h2>
+
+      <div class="mvp-strip">
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-problem">Core Operational Challenge:</span>
+          <p class="mvp-text">Digital image manipulation tools enable fraudulent alteration of deposit amounts from <b>5 Lakhs to 50 Lakhs</b>, which is undetectable to the human eye on scanned copies.</p>
+        </div>
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-solution">Engineered Architecture &amp; MVP Pipeline:</span>
+          <p class="mvp-text"><b>Zero-Trust Image Forensics</b>: Error Level Analysis (ELA) isolates compression variance in modified JPEG pixels, combined with EXIF metadata audits and font kerning analysis.</p>
+        </div>
+      </div>
+
+      <div class="pipeline-grid">
+        <div class="pipe-pillar pillar-blue">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🔒</div>
+            <div class="pillar-title-group">
+              <h3>1. Ingestion &amp; Sandbox</h3>
+              <p>Zero-Trust Perimeter</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top-title">MinIO S3 Vault Storage</div>
+              <p class="card-desc-text">Uploaded deposit certificates are stored under <b>server-side AES-256 encryption</b> with SHA-256 hash pinning.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top-title">Raw Signal Decomposition</div>
+              <p class="card-desc-text">Decompresses raster data into an <b>uncompressed RGB pixel matrix</b> to prevent re-compression masking.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-coral">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🔬</div>
+            <div class="pillar-title-group">
+              <h3>2. Tri-Vector Inspection</h3>
+              <p>Forensic Probe Pipelines</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Probe 1: Error Level Analysis (ELA)</span>
+                <span class="card-pill" style="background:var(--peach-bg); color:var(--peach-accent);">JPEG SPLICING</span>
+              </div>
+              <p class="card-desc-text">Resaves file at fixed 95% JPEG quality. <b>Digitally manipulated pixels exhibit pronounced error intensity deltas</b>.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Probe 2: EXIF &amp; Software Tags</span>
+                <span class="card-pill" style="background:var(--amber-bg); color:var(--amber-accent);">PROVENANCE</span>
+              </div>
+              <p class="card-desc-text">Detects signatures of <b>Adobe Photoshop, Canva, GIMP, iLovePDF</b>, or scrubbed scanner hardware tags.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Probe 3: Font &amp; Kerning Jitter</span>
+                <span class="card-pill" style="background:var(--purple-bg); color:var(--purple-accent);">PIXEL GEOMETRY</span>
+              </div>
+              <p class="card-desc-text">Examines baseline collinearity across digits. Detects resolution mismatches and font over-typing.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-green">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">⚖️</div>
+            <div class="pillar-title-group">
+              <h3>3. Policy Enforcer</h3>
+              <p>Automated Triage Gate</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card" style="border-color:var(--mint-border);">
+              <div class="card-top">
+                <span class="card-top-title" style="color:var(--mint-accent);">Score 0 &ndash; 30 : Clean Scan</span>
+                <span class="card-pill" style="background:var(--mint-bg); color:var(--mint-accent);">AUTO-PASS</span>
+              </div>
+              <p class="card-desc-text">Authentic provenance confirmed. Auto-cleared for Bank Verification Gateway.</p>
+            </div>
+            <div class="white-card" style="border-color:var(--amber-border);">
+              <div class="card-top">
+                <span class="card-top-title" style="color:var(--amber-accent);">Score 31 &ndash; 70 : Suspicious</span>
+                <span class="card-pill" style="background:var(--amber-bg); color:var(--amber-accent);">SCRUTINY</span>
+              </div>
+              <p class="card-desc-text">Moderate anomaly detected. Escalated to Forensic Scrutiny Queue with ELA difference overlay.</p>
+            </div>
+            <div class="white-card" style="border-color:var(--peach-border);">
+              <div class="card-top">
+                <span class="card-top-title" style="color:var(--peach-accent);">Score 71 &ndash; 100 : Fraud Alert</span>
+                <span class="card-pill" style="background:var(--peach-bg); color:var(--peach-accent);">CVO BLOCK</span>
+              </div>
+              <p class="card-desc-text">Tampering verified. <b>File frozen, hash blacklisted, and notification dispatched to Chief Vigilance Officer</b>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-bar">
+        <div>
+          <div class="impact-label">Architectural Impact &amp; Operational Guarantee:</div>
+          <p class="impact-desc">Prevents multi-crore financial collateral fraud by programmatically identifying synthetic, photoshopped, or digitally altered deposit receipts within 2 seconds of ingestion.</p>
+        </div>
+        <div>
+          <div class="impact-label">Production Tech Stack:</div>
+          <div class="tech-pills">
+            <span class="tech-chip">Pillow &amp; NumPy</span>
+            <span class="tech-chip">PyPDF2 / ExifRead</span>
+            <span class="tech-chip">MinIO S3</span>
+            <span class="tech-chip">OpenCV CLAHE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PIPELINE 4: CRYPTOGRAPHIC MERKLE LEDGER -->
+  <!-- ================================================================= -->
+  <div class="panel-item" id="tab-4">
+    <div class="slide-wrapper">
+      <div class="slide-supertitle">System Architecture &bull; Cryptography &amp; Immutable Governance</div>
+      <h2 class="slide-heading">Military-Grade Cryptographic Ledger &amp; Defense-in-Depth Security</h2>
+
+      <div class="mvp-strip">
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-problem">Core Operational Challenge:</span>
+          <p class="mvp-text">Internal data manipulation risks: Rogue database administrators or compromised credentials could illicitly update deposit statuses to 'RELEASED' or alter monetary balances.</p>
+        </div>
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-solution">Engineered Architecture &amp; MVP Pipeline:</span>
+          <p class="mvp-text"><b>Merkle Hash Chaining</b>: Each lifecycle event is cryptographically sealed using HMAC-SHA256. A 60-second sentinel daemon breaks instantly upon direct SQL manipulation.</p>
+        </div>
+      </div>
+
+      <div class="pipeline-grid">
+        <div class="pipe-pillar pillar-blue">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🛡️</div>
+            <div class="pillar-title-group">
+              <h3>1. Zero-Trust Ingress</h3>
+              <p>Perimeter Access Controls</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top-title">Row-Level Security (RLS)</div>
+              <p class="card-desc-text">Regional Officers are strictly isolated to their assigned geographic jurisdiction.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top-title">Four-Eyes Maker-Checker</div>
+              <p class="card-desc-text">Dual-authorization rule: The officer submitting a deposit release request <b>cannot approve or authorize it</b>.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top-title">AES-256-GCM Field Vault</div>
+              <p class="card-desc-text">Sensitive fields (Account Numbers, IFSC, PAN) are <b>encrypted at rest using hardware master HSM keys</b>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-purple">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">⛓️</div>
+            <div class="pillar-title-group">
+              <h3>2. Merkle Hash Chaining</h3>
+              <p>State Mutation Blocks</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Block #1: Genesis State</span>
+                <span class="card-pill" style="background:var(--sky-bg); color:var(--sky-accent);">FDR INTAKE</span>
+              </div>
+              <p class="card-desc-text"><code>Hash_1 = SHA256(Payload + Seed_0)</code>. Permanently anchors institutional PID, amount, and timestamp.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Block #2: Bank Lien Confirmed</span>
+                <span class="card-pill" style="background:var(--mint-bg); color:var(--mint-accent);">MUTATION</span>
+              </div>
+              <p class="card-desc-text"><code>Hash_2 = HMAC(BankData + Hash_1, Key)</code>. Binds bank transaction tokens directly to Block #1.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Block #3: Bureau Release NOC</span>
+                <span class="card-pill" style="background:var(--purple-bg); color:var(--purple-accent);">FINAL SEAL</span>
+              </div>
+              <p class="card-desc-text"><code>Hash_3 = HMAC(AadhaarSign + Hash_2, Key)</code>. Cryptographically locks final statutory discharge.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#7E22CE" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-green">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">📜</div>
+            <div class="pillar-title-group">
+              <h3>3. Verified NOC Output</h3>
+              <p>Statutory Certification</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card" style="border-color:var(--mint-border);">
+              <div class="card-top-title" style="color:var(--mint-accent);">Aadhaar XML e-Sign</div>
+              <p class="card-desc-text">Executed under <b>Section 5 of the Information Technology Act, 2000</b>, conferring full legal validity.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top-title">Encrypted QR Verification</div>
+              <p class="card-desc-text">Embeds an AICTE private-key signed token. Bank branch managers verify authenticity via smartphone scan in 2 seconds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-bar">
+        <div>
+          <div class="impact-label">Architectural Impact &amp; Operational Guarantee:</div>
+          <p class="impact-desc">Guarantees non-repudiation and insider threat immunity. Direct database modification breaks the cryptographic hash chain immediately, generating a critical security alert.</p>
+        </div>
+        <div>
+          <div class="impact-label">Production Tech Stack:</div>
+          <div class="tech-pills">
+            <span class="tech-chip">HMAC-SHA256</span>
+            <span class="tech-chip">AES-256-GCM</span>
+            <span class="tech-chip">PostgreSQL RLS</span>
+            <span class="tech-chip">Aadhaar e-Sign</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PIPELINE 5: TRI-MODAL BANK GATEWAY -->
+  <!-- ================================================================= -->
+  <div class="panel-item" id="tab-5">
+    <div class="slide-wrapper">
+      <div class="slide-supertitle">System Architecture &bull; Banking Telemetry &amp; Interoperability</div>
+      <h2 class="slide-heading">Tri-Modal Universal Bank Verification Gateway</h2>
+
+      <div class="mvp-strip">
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-problem">Core Operational Challenge:</span>
+          <p class="mvp-text">Lack of standardized API infrastructure across <b>43 Regional Rural Banks and 1,500+ Urban Co-operative Banks</b> creates a nationwide verification barrier.</p>
+        </div>
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-solution">Engineered Architecture &amp; MVP Pipeline:</span>
+          <p class="mvp-text">A <b>3-Tier Adaptive Gateway</b>: Integrates Core Banking System (CBS) APIs for Tier-1 banks, secure two-factor authenticated digital tokens for rural branches, and NeSL for statutory e-BG records.</p>
+        </div>
+      </div>
+
+      <div class="pipeline-grid">
+        <div class="pipe-pillar pillar-blue">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🏛️</div>
+            <div class="pillar-title-group">
+              <h3>1. Request Triage</h3>
+              <p>Capability Classifier</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top-title">FDR Instrument Declaration</div>
+              <p class="card-desc-text">Institution submits FDR Number, Principal Amount, Maturity Date, and IFSC. Joint Undertaking is cryptographically pinned.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top-title">RBI Capability Registry Router</div>
+              <p class="card-desc-text">Resolves IFSC against the RBI Bank Infrastructure Master to automatically route into Mode 1, 2, or 3.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-yellow">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🏦</div>
+            <div class="pillar-title-group">
+              <h3>2. Tri-Modal Execution</h3>
+              <p>Adaptive 3-Tier Gateway</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Mode 1: CBS / SFMS Webhook</span>
+                <span class="card-pill" style="background:var(--mint-bg); color:var(--mint-accent);">TIER-1 PSBs</span>
+              </div>
+              <p class="card-desc-text">Tier-1 Banks (SBI, PNB, Canara, HDFC). <b>SFMS IFN 760 BG/Lien</b> automated JSON callback in under 1 second.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Mode 2: Branch Magic Token</span>
+                <span class="card-pill" style="background:var(--sky-bg); color:var(--sky-accent);">RURAL &amp; CO-OP</span>
+              </div>
+              <p class="card-desc-text">Time-bound link dispatched to branch email; manager confirms lien via <b>SMS OTP 2FA</b>. Zero bank IT cost.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Mode 3: NeSL Statutory Utility</span>
+                <span class="card-pill" style="background:var(--purple-bg); color:var(--purple-accent);">NESL UTILITY</span>
+              </div>
+              <p class="card-desc-text">Digital Document Execution (DDE) directly verifies electronic bank guarantees and stamp charge filings.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-green">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🔒</div>
+            <div class="pillar-title-group">
+              <h3>3. Lien Confirmed</h3>
+              <p>Dual-Truth Reconciliation</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card" style="border-color:var(--mint-border);">
+              <div class="card-top-title" style="color:var(--mint-accent);">Lien Marked &amp; Freeze Confirmed</div>
+              <p class="card-desc-text">Bank Core Banking logs an encashment restriction in favor of AICTE. Pre-mature liquidation blocked.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top-title">Dual-Truth Ledger Binding</div>
+              <p class="card-desc-text">Institution self-declarations are permanently reconciled against independently authenticated Bank Truth.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-bar">
+        <div>
+          <div class="impact-label">Architectural Impact &amp; Operational Guarantee:</div>
+          <p class="impact-desc">Achieves 100% nationwide institutional coverage without mandating costly API overhauls on rural or co-operative banks, providing seamless lien verification across all banking tiers.</p>
+        </div>
+        <div>
+          <div class="impact-label">Production Tech Stack:</div>
+          <div class="tech-pills">
+            <span class="tech-chip">Open Banking CBS</span>
+            <span class="tech-chip">SFMS IFN 760</span>
+            <span class="tech-chip">2FA JWT Magic Link</span>
+            <span class="tech-chip">NeSL DDE Platform</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PIPELINE 6: AUTONOMOUS ANTI-LAPSE SLA ENGINE -->
+  <!-- ================================================================= -->
+  <div class="panel-item" id="tab-6">
+    <div class="slide-wrapper">
+      <div class="slide-supertitle">System Architecture &bull; Automation &amp; Administrative Accountability</div>
+      <h2 class="slide-heading">Autonomous Maturity Escalation &amp; Anti-Lapse SLA Engine</h2>
+
+      <div class="mvp-strip">
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-problem">Core Operational Challenge:</span>
+          <p class="mvp-text">Administrative lethargy and manual tracking cause deposits to mature unnoticed, resulting in <b>unauthorized rollovers into non-interest-bearing holding accounts</b>.</p>
+        </div>
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-solution">Engineered Architecture &amp; MVP Pipeline:</span>
+          <p class="mvp-text"><b>Autonomous Milestone Escalation</b>: Automated chrono-workers monitor deposit horizons (T-180, T-90, T-30 days), dispatch multi-channel notifications, and escalate stalled files through a strict administrative ladder.</p>
+        </div>
+      </div>
+
+      <div class="pipeline-grid">
+        <div class="pipe-pillar pillar-blue">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">⏰</div>
+            <div class="pillar-title-group">
+              <h3>1. Midnight Cron</h3>
+              <p>Chrono Scan Worker</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top-title">Celery / Redis Chrono Bot</div>
+              <p class="card-desc-text">Executes daily at 00:00 UTC across 10,000+ active deposit instruments without requiring human initiation.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top-title">Maturity Horizon Classifier</div>
+              <p class="card-desc-text">Classifies portfolio exposure into statutory intervals: <b>T-180d (Early Advice), T-90d (Renewal Open), T-30d (Urgent Alert), and D-Day</b>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-yellow">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">📢</div>
+            <div class="pillar-title-group">
+              <h3>2. Omni-Channel Dispatch</h3>
+              <p>Multi-Tier Alerts</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">WhatsApp Nodal Bot</span>
+                <span class="card-pill" style="background:var(--mint-bg); color:var(--mint-accent);">MOBILE FIRST</span>
+              </div>
+              <p class="card-desc-text">Interactive quick-action buttons sent to Institution Heads: 1-tap renewal document submission and live status verification.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Official Email &amp; SMS Gateway</span>
+                <span class="card-pill" style="background:var(--sky-bg); color:var(--sky-accent);">STATUTORY NOTICE</span>
+              </div>
+              <p class="card-desc-text">Cryptographically signed notices dispatched to registered Trust domain emails and authorized trustees.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Bank Branch Telemetry Notice</span>
+                <span class="card-pill" style="background:var(--purple-bg); color:var(--purple-accent);">LIEN SAFEGUARD</span>
+              </div>
+              <p class="card-desc-text">Formally instructs bank branch managers that liens remain enforceable pending official AICTE NOC execution.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-coral">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🚨</div>
+            <div class="pillar-title-group">
+              <h3>3. SLA Escalation</h3>
+              <p>Accountability Ladder</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top-title">Day 0 - 7: Scrutiny Desk</div>
+              <p class="card-desc-text">Assigned to Regional Scrutiny Clerk with pre-extracted AI verification checklists.</p>
+            </div>
+            <div class="white-card" style="border-color:var(--amber-border);">
+              <div class="card-top-title" style="color:var(--amber-accent);">Day 10: RO Director Alert</div>
+              <p class="card-desc-text">Unreviewed past 7 days &rarr; Automated escalation notice dispatched directly to Regional Director.</p>
+            </div>
+            <div class="white-card" style="border-color:var(--peach-border);">
+              <div class="card-top-title" style="color:var(--peach-accent);">Day 15: AICTE HQ Red Flag</div>
+              <p class="card-desc-text">High-priority red flag activated on <b>New Delhi Central Bureau Chief Dashboard</b>. Enforces zero administrative latency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-bar">
+        <div>
+          <div class="impact-label">Architectural Impact &amp; Operational Guarantee:</div>
+          <p class="impact-desc">Enforces complete bureaucratic accountability. Eliminates multi-month processing delays through automated escalations, ensuring 100% compliance with statutory lock-in timelines.</p>
+        </div>
+        <div>
+          <div class="impact-label">Production Tech Stack:</div>
+          <div class="tech-pills">
+            <span class="tech-chip">Celery &amp; Redis 7.2</span>
+            <span class="tech-chip">Meta Cloud API</span>
+            <span class="tech-chip">FastAPI Async</span>
+            <span class="tech-chip">PostgreSQL Triggers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PIPELINE 7: CROSS-GOVERNMENT DPI ENTITY INTELLIGENCE -->
+  <!-- ================================================================= -->
+  <div class="panel-item" id="tab-7">
+    <div class="slide-wrapper">
+      <div class="slide-supertitle">System Architecture &bull; Interoperability &amp; Digital Public Infrastructure</div>
+      <h2 class="slide-heading">Cross-Government DPI Entity Intelligence Engine</h2>
+
+      <div class="mvp-strip">
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-problem">Core Operational Challenge:</span>
+          <p class="mvp-text">Shell societies and benami trusts exploit identity mismatches where deposit accounts, educational institutions, and trustee PANs do not legally correspond.</p>
+        </div>
+        <div class="mvp-col">
+          <span class="mvp-label mvp-label-solution">Engineered Architecture &amp; MVP Pipeline:</span>
+          <p class="mvp-text"><b>Real-time handshakes with NITI Aayog NGO Darpan, MCA21, and CBDT PAN</b> verify trustee identity, corporate registration, and authorized signatories on Day 1.</p>
+        </div>
+      </div>
+
+      <div class="pipeline-grid">
+        <div class="pipe-pillar pillar-blue">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🌐</div>
+            <div class="pillar-title-group">
+              <h3>1. Statutory APIs</h3>
+              <p>Live Government Feeds</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top-title">NITI Aayog NGO Darpan</div>
+              <p class="card-desc-text">Real-time Trust Unique ID lookup; extracts certified list of executive trustees.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top-title">MCA21 Corporate Affairs</div>
+              <p class="card-desc-text">Validates Section-8 non-profit company CIN, director identity, and active legal status.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top-title">CBDT PAN &amp; AISHE Linkage</div>
+              <p class="card-desc-text">Validates Trust PAN entity name and maps sanctioned student intake capacity.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-purple">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🕸️</div>
+            <div class="pillar-title-group">
+              <h3>2. Graph Matcher</h3>
+              <p>Entity Relationship Matrix</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Trust Name Reconciliation</span>
+                <span class="card-pill" style="background:var(--sky-bg); color:var(--sky-accent);">NAME MATCH</span>
+              </div>
+              <p class="card-desc-text">Cross-examines FDR Account Holder against Registered Trust Name in NGO Darpan registry.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Signatory Authorization</span>
+                <span class="card-pill" style="background:var(--mint-bg); color:var(--mint-accent);">ROLE CHECK</span>
+              </div>
+              <p class="card-desc-text">Matches Authorized Signatory against MCA21 active trustees and directors registry.</p>
+            </div>
+            <div class="white-card">
+              <div class="card-top">
+                <span class="card-top-title">Blacklist &amp; Shell Sentinel</span>
+                <span class="card-pill" style="background:var(--peach-bg); color:var(--peach-accent);">BENAMI FILTER</span>
+              </div>
+              <p class="card-desc-text">Cross-references PANs and names against the AICTE debarred entity blacklist to eliminate benami trusts.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="#7E22CE" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="pipe-pillar pillar-green">
+          <div class="pillar-head">
+            <div class="pillar-icon-circ">🛡️</div>
+            <div class="pillar-title-group">
+              <h3>3. Trust Clearance</h3>
+              <p>Regulatory Determination</p>
+            </div>
+          </div>
+          <div class="cards-stack">
+            <div class="white-card" style="border-color:var(--mint-border);">
+              <div class="card-top-title" style="color:var(--mint-accent);">100% Green Match : Cleared</div>
+              <p class="card-desc-text">Zero identity discrepancies. Fast-tracks deposit directly without requiring manual notarized affidavits.</p>
+            </div>
+            <div class="white-card" style="border-color:var(--peach-border);">
+              <div class="card-top-title" style="color:var(--peach-accent);">Discrepancy : Show-Cause</div>
+              <p class="card-desc-text">Entity mismatch detected. Freezes approval workflows and generates automated show-cause notice.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-bar">
+        <div>
+          <div class="impact-label">Architectural Impact &amp; Operational Guarantee:</div>
+          <p class="impact-desc">Integrates directly with National Digital Public Infrastructure (DPI) to eliminate shell societies and benami trusts, saving hundreds of administrative scrutiny hours annually.</p>
+        </div>
+        <div>
+          <div class="impact-label">Production Tech Stack:</div>
+          <div class="tech-pills">
+            <span class="tech-chip">NITI NGO Darpan API</span>
+            <span class="tech-chip">MCA21 REST API</span>
+            <span class="tech-chip">CBDT PAN Gateway</span>
+            <span class="tech-chip">AISHE Registry</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let editMode = false;
+
+    function switchTab(num) {
+      document.querySelectorAll('.tab-chip').forEach((c, idx) => {
+        c.classList.toggle('active', idx === (num - 1));
+      });
+      document.querySelectorAll('.panel-item').forEach((p, idx) => {
+        p.classList.toggle('active', idx === (num - 1));
+      });
+    }
+
+    function toggleEdit() {
+      editMode = !editMode;
+      const btn = document.getElementById('btnEdit');
+      const txt = document.getElementById('editText');
+
+      btn.classList.toggle('active', editMode);
+      txt.innerText = editMode ? '💾 Done Editing' : '✏️ Edit Text in Browser';
+
+      document.querySelectorAll('.slide-wrapper').forEach(w => {
+        w.classList.toggle('edit-active', editMode);
+        w.querySelectorAll('.slide-heading, .mvp-text, .card-top-title, .card-desc-text, .impact-desc, .pillar-title-group h3, .pillar-title-group p').forEach(el => {
+          el.setAttribute('contenteditable', editMode ? 'true' : 'false');
+        });
+      });
+
+      if (editMode) {
+        alert("Edit Mode ON!\n\nYou can now click and edit any title, description, or component directly in the browser.");
+      }
+    }
+  </script>
+</body>
+</html>

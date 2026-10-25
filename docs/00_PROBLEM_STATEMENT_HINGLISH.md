@@ -1,4 +1,4 @@
-# 🎓 AICTE Security Deposit & FDR Portal: Pure Problem Statement Explained in Simple Hinglish
+# AICTE Security Deposit & FDR Portal: Pure Problem Statement Explained in Simple Hinglish
 
 > **Bhai, tension mat lo!** Yeh guide bilkul tumhari bhasha mein hai. Isko shuru se aakhri tak ek kahani ki tarah padho — pura Smart India Hackathon (SIH) ka problem statement pani ki tarah clear ho jayega!
 
